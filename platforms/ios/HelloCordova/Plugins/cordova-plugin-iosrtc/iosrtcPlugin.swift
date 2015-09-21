@@ -753,7 +753,9 @@ class iosrtcPlugin : CDVPlugin {
 			try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.None)
 		} catch let error1 as NSError {
 			error = error1
-		};
+        }catch {
+            print("Something went wrong!")
+        };
 
 		if error != nil {
 			NSLog("iosrtcPlugin#selectAudioOutputEarpiece() | ERROR: \(error!.localizedDescription)")
@@ -770,7 +772,9 @@ class iosrtcPlugin : CDVPlugin {
 			try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker)
 		} catch let error1 as NSError {
 			error = error1
-		};
+        }catch {
+            print("Something went wrong!")
+        }
 
 		if error != nil {
 			NSLog("iosrtcPlugin#selectAudioOutputSpeaker() | ERROR: \(error!.localizedDescription)")
@@ -806,7 +810,7 @@ class iosrtcPlugin : CDVPlugin {
 
 	private func emit(callbackId: String, result: CDVPluginResult) {
 		dispatch_async(dispatch_get_main_queue()) {
-			self.commandDelegate.sendPluginResult(result, callbackId: callbackId)
+			self.commandDelegate!.sendPluginResult(result, callbackId: callbackId)
 		}
 	}
 

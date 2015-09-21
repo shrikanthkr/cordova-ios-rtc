@@ -2,7 +2,6 @@ import Foundation
 import AVFoundation
 
 
-(PluginMediaStreamRenderer)  // Needed.
 class PluginMediaStreamRenderer : RTCEAGLVideoViewDelegate {
 	var webView: UIWebView
 	var eventListener: (data: NSDictionary) -> Void
@@ -228,7 +227,7 @@ class PluginMediaStreamRenderer : RTCEAGLVideoViewDelegate {
 	 */
 
 
-	func videoView(videoView: RTCEAGLVideoView!, didChangeVideoSize size: CGSize) {
+	@objc func videoView(videoView: RTCEAGLVideoView!, didChangeVideoSize size: CGSize) {
 		NSLog("PluginMediaStreamRenderer | video size changed [width:\(size.width), height:\(size.height)]")
 
 		self.eventListener(data: [
