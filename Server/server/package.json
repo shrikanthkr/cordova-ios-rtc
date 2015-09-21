@@ -1,0 +1,8 @@
+{
+	"name": "web-rtc",
+	"description": "Sample WEBRtc",
+	"author": "Shrikanth",
+	"dependencies": {
+		"ws": "*"
+	}
+}
